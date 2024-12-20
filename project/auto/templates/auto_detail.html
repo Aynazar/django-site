@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>{{ auto.brand }}</title>
+	</head>
+
+	<body>
+		<a href='{% url "post_list" %}'>List of auto</a>
+		<h2>{{ auto.brand }}</h2>
+		<div>{{ auto.model }}</div>
+	</body>
+</html>

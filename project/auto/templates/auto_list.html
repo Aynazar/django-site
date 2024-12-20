@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Список добавленных машин</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 20px;
+				background-color: #f4f4f4;
+			}
+
+			h2 {
+				color: #333;
+				margin-top: 0;
+			}
+
+			.car-container {
+				display: flex;
+				align-items: center;
+
+				background: #fff;
+				border-radius: 8px;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+				margin: 15px 0;
+				padding: 15px;
+			}
+			.auto-brand {
+				color: #333;
+				font-size: 16px;
+				cursor: pointer;
+
+				padding: 0 0 15px 0;
+			}
+			.auto-item {
+				color: #555;
+			}
+			.auto-info {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+				font-size: 14px;
+			}
+			.mark {
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background-color: rgb(145, 36, 207);
+			}
+			.infos {
+				padding: 0 0 0 20px;
+			}
+			.btn {
+				background-color: rgb(145, 36, 207);
+				border: none;
+				padding: 8px 12px;
+				border-radius: 4px;
+
+				a {
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+			.scroll {
+				width: 100%;
+				height: 450px;
+
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="scroll">
+			{% for auto in autos %}
+
+			<div class="car-container">
+				<div class="mark"></div>
+				<div class="infos">
+					<div class="auto-brand">
+						{{ auto.brand }} <span class="car-model">{{ auto.model }}</span>
+					</div>
+					<div class="auto-info">
+						<div class="auto-item">
+							Год выпуска: <span class="auto-year">{{ auto.year }}</span>
+						</div>
+						<div class="auto-item">
+							Цвет: <span class="auto-year">{{ auto.color }}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{% endfor %}
+		</div>
+
+		<button role="button" type="button" class="btn">
+			<a href="/create-auto">Добавить машину</a>
+		</button>
+	</body>
+</html>
